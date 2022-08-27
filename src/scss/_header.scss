@@ -1,0 +1,28 @@
+.header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: $main-color;
+  box-shadow: 65px 1px 5px 2px $sub-color;
+  height: 60px;
+  z-index: 2;
+
+  &__burger{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 2px $sub-color;
+    padding: 10px;
+    cursor: pointer;
+    transition: .5s;
+
+    &:hover{
+      box-shadow: 0 0 5px 5px $sub-color;
+    }
+  }
+}

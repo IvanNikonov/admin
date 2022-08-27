@@ -1,0 +1,8 @@
+.content{
+
+  &__block{
+    background-color: $main-color;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+  }
+}

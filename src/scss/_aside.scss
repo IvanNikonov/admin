@@ -1,0 +1,11 @@
+.aside{
+  background-color: $main-color;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 1;
+  padding: 10px;
+  box-shadow: 1px 0 5px 2px $sub-color;
+}
