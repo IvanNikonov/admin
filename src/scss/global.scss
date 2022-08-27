@@ -2,6 +2,7 @@ $main-color: #fff;
 $sub-color: rgba(0,0,0,.1);
 $font-color: #111111;
 
+
 *{
     box-sizing: border-box;
 }
@@ -15,6 +16,7 @@ body{
     padding: 0;
     margin: 0;
     font-size: 14px;
+    line-height: 1.2;
     color: $font-color;
     background-color: $sub-color;
 }
