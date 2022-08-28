@@ -9,6 +9,18 @@
   height: 60px;
   z-index: 2;
 
+  &__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   &__burger{
     display: flex;
     align-items: center;
@@ -20,9 +32,20 @@
     padding: 10px;
     cursor: pointer;
     transition: .5s;
+    margin-right: 10px;
 
     &:hover{
       box-shadow: 0 0 5px 5px $sub-color;
     }
+  }
+
+  &__cms-title{
+    font-weight: bold;
+  }
+
+
+  &__site-name{
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 }

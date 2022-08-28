@@ -69,7 +69,10 @@ let {src, dest} = require('gulp'),
     clean_js = require('gulp-uglify-es').default,
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    svgSprite = require('gulp-svg-sprite');
+    svgSprite = require('gulp-svg-sprite'),
+    ttf2woff = require('gulp-ttf2woff'),
+    ttf2woff2 = require('gulp-ttf2woff2'),
+    sort = require('gulp-sort');
 
 function browserSync(){
     browswersync.init({
@@ -90,6 +93,7 @@ function html(){
 
 function css(){
     return src(path.src.css)
+        .pipe(sort())
         .pipe(concat('style.scss'))
         .pipe(
             scss({
@@ -138,6 +142,15 @@ function icons(){
         .pipe(browswersync.stream())
 }
 
+function fonts(){
+    src(path.src.fonts)
+        .pipe(ttf2woff())
+        .pipe(dest(path.build.fonts));
+    return src(path.src.fonts)
+        .pipe(ttf2woff2())
+        .pipe(dest(path.build.fonts))
+}
+
 function watchFiles(params){
     gulp.watch([path.watch.html], html)
     gulp.watch([path.watch.css], css)
@@ -150,9 +163,10 @@ function clean(params){
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, img, html), icons);
+let build = gulp.series(clean, gulp.parallel(js, css, img, html), icons, fonts);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
+exports.fonts = fonts;
 exports.icons = icons;
 exports.img = img;
 exports.js = js;

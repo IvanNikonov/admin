@@ -1,0 +1,20 @@
+.avatar{
+  position: relative;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &::before{
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  &__image{
+    transition: .5s;
+  }
+
+  &--animate:hover &__image{
+      transform: scale(1.3);
+  }
+}
